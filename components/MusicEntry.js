@@ -1,10 +1,7 @@
-import {
-  html,
-  useRef,
-  useEffect,
-} from "https://unpkg.com/htm/preact/standalone.module.js";
+import { html } from "https://unpkg.com/htm/preact/standalone.module.js";
 
 import useAverageColor from "../hooks/useAverageColor";
+import AudioPreview from "./AudioPreview";
 
 const MusicEntry = ({ item, activeItemId, setActiveItemId }) => {
   const name = item.trackName || item.collectionName;
@@ -15,46 +12,23 @@ const MusicEntry = ({ item, activeItemId, setActiveItemId }) => {
   const price = (item.trackPrice || item.collectionPrice) + " " + item.currency;
 
   const averageColor = useAverageColor(artworkUrl);
-  const audioEl = useRef(null);
 
-  const handlePlay = () => {
+  const handleClick = () => {
     setActiveItemId(id);
   };
-
-  const handlePause = () => {
-    setActiveItemId(null);
-  };
-
-  useEffect(() => {
-    if (audioEl.current !== null && !isActive) {
-      audioEl.current.pause();
-    }
-  }, [isActive]);
 
   return html`
     <li
       class="music-entry ${isActive && "active"}"
       style="--average-color: ${averageColor};"
+      onClick=${handleClick}
     >
       <article>
         <div class="backdrop-container">
           <div class="under-backdrop">
             <p>Buy on <a href=${iTunesUrl}>iTunes</a> for <b>${price}</b></p>
             ${item.previewUrl &&
-            html`
-              <audio
-                class="audio-preview"
-                onPlay=${handlePlay}
-                onPause=${handlePause}
-                ref=${audioEl}
-                src=${item.previewUrl}
-                type="audio/mp4"
-                controls
-              >
-                Your browser does not support the
-                <code>audio</code> element.
-              </audio>
-            `}
+            AudioPreview({ previewUrl: item.previewUrl, isActive })}
           </div>
           <div class="image-backdrop">
             <img src=${artworkUrl} />

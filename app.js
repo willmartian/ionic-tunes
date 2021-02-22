@@ -20,16 +20,16 @@ const App = () => {
   return html`
     <header>
       <h1>IonicTunes 🎸</h1>
-      ${Search({ searchTerm, setSearchTerm })}
     </header>
     <main>
-      ${data.length > 0 &&
-      html`
-        <h2 class="results-summary">
-          Showing ${data.length} of ${getResultsCount()} results for
-          "${searchTerm}" ♫
-        </h2>
-      `}
+      ${Search({ setSearchTerm })}
+      <h2 class="results-summary">
+        ${data.length > 0
+          ? `Showing ${
+              data.length
+            } of ${getResultsCount()} results for "${searchTerm}" ♫`
+          : `Try searching for your favorite song!`}
+      </h2>
       ${MusicList({ data, loadNextPage, hasNextPage })}
     </main>
   `;

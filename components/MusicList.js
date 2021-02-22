@@ -15,9 +15,12 @@ const MusicList = ({ data, loadNextPage, hasNextPage }) => {
       )}
       ${hasNextPage() &&
       html`
-        <button class="next-button music-entry" onClick=${loadNextPage}>
-          Show More ⏭️
-        </button>
+        <input
+          type="button"
+          class="next-button music-entry"
+          value="Show More ⏭️"
+          onClick=${loadNextPage}
+        />
       `}
     </ol>
   `;

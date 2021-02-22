@@ -1,18 +1,30 @@
-import { html } from "https://unpkg.com/htm/preact/standalone.module.js";
+import {
+  html,
+  useState,
+} from "https://unpkg.com/htm/preact/standalone.module.js";
 
-const Search = ({ searchTerm, setSearchTerm }) => {
-  const handleChange = (evt) => {
-    setSearchTerm(evt.target.value);
+const Search = ({ setSearchTerm }) => {
+  const [inputText, setInputText] = useState("");
+
+  const handleInput = (evt) => {
+    setInputText(evt.target.value);
+  };
+
+  const handleSearch = () => {
+    setSearchTerm(inputText);
   };
 
   return html`
-    <input
-      class="search"
-      type="text"
-      placeholder="Find your jam ♪"
-      value=${searchTerm}
-      onChange=${handleChange}
-    />
+    <div class="search">
+      <input
+        type="text"
+        placeholder="Find your jam ♪"
+        value=${inputText}
+        onInput=${handleInput}
+        onChange=${handleSearch}
+      />
+      <input type="button" onClick=${handleSearch} value="Search" />
+    </div>
   `;
 };
 
