@@ -36,6 +36,7 @@ main {
 .search > input {
   margin-right: 1em;
   padding: 0.5em;
+  max-width: 50%;
 }
 
 input[type="button"] {
