@@ -8,6 +8,8 @@ This is a simple application that consumes and displays the iTunes Search API. I
 
 💅 All CSS styles are 100% custom.
 
+⚠️ Rigorous cross-browser compatibility testing wasn't proritized for this demo. Testing and development was primarily conducted on Firefox and Chrome.
+
 ## Running Locally
 
 1. Clone the repository
