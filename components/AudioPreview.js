@@ -12,17 +12,22 @@ const AudioPreview = ({ previewUrl }) => {
     console.log("changePlaying");
     if (!audioEl.current) return;
 
-    if (audioEl.current.paused) {
-      audioEl.current.play();
-      setIsPlaying(true);
-    } else {
+    if (isPlaying) {
       audioEl.current.pause();
       setIsPlaying(false);
+    } else {
+      audioEl.current.play();
+      setIsPlaying(true);
     }
   };
 
   return html`
-    <audio ref=${audioEl} src=${previewUrl} type="audio/mp4">
+    <audio
+      ref=${audioEl}
+      src=${previewUrl}
+      type="audio/mp4"
+      onEnded=${changePlaying}
+    >
       Your browser does not support the
       <code>audio</code> element.
     </audio>
