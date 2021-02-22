@@ -6,7 +6,7 @@ Live demo here: https://ionic-tunes.netlify.app/
 
 This is a simple application that consumes and displays the iTunes Search API. It is built using [Preact](https://github.com/preactjs/preact), [HTM](https://github.com/developit/htm), and [Snowpack](https://github.com/snowpackjs/snowpack).
 
-💅 All CSS styles are 100% custom. 
+💅 All CSS styles are 100% custom.
 
 ## Running Locally
 

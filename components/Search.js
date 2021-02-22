@@ -23,7 +23,12 @@ const Search = ({ setSearchTerm }) => {
         onInput=${handleInput}
         onChange=${handleSearch}
       />
-      <input type="button" onClick=${handleSearch} value="Search" />
+      <input
+        type="button"
+        onClick=${handleSearch}
+        onTouchEnd=${handleSearch}
+        value="Search"
+      />
     </div>
   `;
 };
