@@ -35,6 +35,7 @@ main {
 
 .search > input {
   margin-right: 1em;
+  padding: .5em;
 }
 
 input[type="button"] {
