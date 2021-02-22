@@ -1,0 +1,22 @@
+{
+  "name": "ionic-tunes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "snowpack": "^3.0.11"
+  },
+  "dependencies": {
+    "fast-average-color": "^6.3.0",
+    "htm": "^3.0.4",
+    "jsonp": "^0.2.1"
+  }
+}
