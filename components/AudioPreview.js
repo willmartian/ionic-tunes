@@ -27,9 +27,9 @@ const AudioPreview = ({ previewUrl }) => {
       <code>audio</code> element.
     </audio>
     <input
-      class="audio-button ${isPlaying && "playing"}"
+      class="audio-button"
       type="button"
-      value=${isPlaying ? "▮▮ Pause" : "▶ Play"}
+      value=${isPlaying ? "Pause" : "Play"}
       onClick=${changePlaying}
     />
   `;
